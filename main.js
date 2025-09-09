@@ -13,10 +13,12 @@
     let rules = [];
     try {
         const storedRules = localStorage.getItem("gs-highlighter-rules");
-        rules = JSON.parse(storedRules);
-        console.log("Loaded rules from localStorage:", rules);
+        if (storedRules) {
+            rules = JSON.parse(storedRules);
+            console.log("GSH: Loaded rules from localStorage:", rules);
+        }
     } catch (e) {
-        console.error("Failed to load rules from localStorage:", e);
+        console.error("GSH: Failed to load rules from localStorage:", e);
     }
 
     // Extracts metadata from a single search result entry
@@ -56,9 +58,9 @@
             for (const rule of rules) {
                 if (
                     metadata.year >=
-                        (rule.yearRange.min ?? Number.NEGATIVE_INFINITY) &&
+                    (rule.yearRange.min ?? Number.NEGATIVE_INFINITY) &&
                     metadata.year <=
-                        (rule.yearRange.max ?? Number.POSITIVE_INFINITY) &&
+                    (rule.yearRange.max ?? Number.POSITIVE_INFINITY) &&
                     metadata.numCitation >= rule.minNumCitation
                 ) {
                     result.style.backgroundColor = rule.color;
@@ -261,9 +263,9 @@
 
         try {
             localStorage.setItem("gs-highlighter-rules", JSON.stringify(rules));
-            console.log("Rules saved to localStorage:", rules);
+            console.log("GSH: Rules saved to localStorage:", rules);
         } catch (e) {
-            console.error("Failed to save rules to localStorage:", e);
+            console.error("GSH: Failed to save rules to localStorage:", e);
         }
     }
 
