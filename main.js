@@ -147,14 +147,15 @@
                 ruleDiv.style.display = "flex";
                 ruleDiv.style.flexDirection = "column";
                 ruleDiv.style.alignItems = "flex-end";
+                ruleDiv.style.gap = "5px";
                 ruleDiv.innerHTML = `
-                <div style="display: flex; flexDirection: row; gap: 10px;">
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-start; align-items: center; gap: 10px;">
                     <label>Color: <input type="color" class="color" value="${rule.color}"></label>
                     <label>Min Year: <input type="number" class="minYear" value="${rule.yearRange.min ? rule.yearRange.min : ""}" placeholder="-∞"></label>
                     <label>Max Year: <input type="number" class="maxYear" value="${rule.yearRange.max ? rule.yearRange.max : ""}" placeholder="∞"></label>
                     <label>Min Citations: <input type="number" class="minCit" value="${rule.minNumCitation}" min="0"></label>
                 </div>
-                <div style="display: flex; flexDirection: row; gap: 10px;">
+                <div style="display: flex; flex-direction: row; gap: 10px;">
                     <button class="up" ${index === 0 ? "disabled" : ""}>↑ Up</button>
                     <button class="down" ${index === tempRules.length - 1 ? "disabled" : ""}>↓ Down</button>
                     <button class="delete">Delete</button>
