@@ -31,8 +31,12 @@ Sometimes it's tiring to screen through Google Scholar's search results. This sc
 
 3. Visit [Google Scholar](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=C.G.Jung&btnG=). You should see a `Highlight` button on the bottom right corner.
 
-4. Click the `Highlight` and start editing your rules!
+4. Click the `Highlight` button and start editing your rules!
 
 ## Compatibility
 
-This script is tested on Firefox with Greasemonkey, it should work on other browsers and script managers as well.
+This script is tested on Firefox with Greasemonkey & Violentmonkey, it should work on other browsers and script managers as well.
+
+## Known Issues
+
+1. The script might not work when the language of Google Scholar is not set to English. For example, in Chinese/Japanese, `citation: xxx` becomes `被引用数: xxx` and the script won't be able to find the citation number.
